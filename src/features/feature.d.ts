@@ -1,5 +1,1 @@
-
-
-declare namespace AppFeatures {
-    
-}
+declare namespace AppFeatures {}

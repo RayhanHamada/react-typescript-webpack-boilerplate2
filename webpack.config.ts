@@ -44,7 +44,7 @@ export default {
   plugins: [
     new HTMLWebpackPlugin({
       title: 'React with Webpack and Typescript Support Boilerplate',
-	  favicon: false,
+      favicon: false,
       template: './src/index.html',
     }),
   ],
@@ -53,7 +53,7 @@ export default {
   optimization: !isProd
     ? {}
     : {
-        // minimize: true,
+        minimize: true,
         minimizer: [new TerserWebpackPlugin()],
       },
 

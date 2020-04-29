@@ -5,10 +5,10 @@ import { History } from 'history';
 import { connectRouter } from 'connected-react-router';
 
 const createRootReducer = (history: History) =>
-	combineReducers({
-		router: connectRouter(history),
-		counterReducer,
-		userReducer,
-	});
+  combineReducers({
+    router: connectRouter(history),
+    counterReducer,
+    userReducer,
+  });
 
 export default createRootReducer;

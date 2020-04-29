@@ -1,5 +1,5 @@
 declare namespace AppFeatures {
-	interface Counter {
-		count: number;
-	}
+  interface Counter {
+    count: number;
+  }
 }
