@@ -1,7 +1,7 @@
-import * as counterActions from '../features/counter/actions';
-import * as userActions from '../features/user/actions';
+import * as counter from '../features/counter/actions';
+import * as user from '../features/user/actions';
 
 export default {
-  counterActions,
-  userActions,
+  counter,
+  user,
 };

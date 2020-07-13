@@ -1,10 +1,10 @@
 import { createReducer } from 'typesafe-actions';
 
-const initialState: AppFeatures.Counter = {
+const initState: Features.Counter = {
   count: 0,
 };
 
-const counterReducer = createReducer(initialState)
+const reducer = createReducer(initState)
   .handleType('counter/INCREMENT', state => {
     return {
       ...state,
@@ -33,4 +33,4 @@ const counterReducer = createReducer(initialState)
     };
   });
 
-export default counterReducer;
+export default reducer;

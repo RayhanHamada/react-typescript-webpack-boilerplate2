@@ -1,29 +1,33 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { history } from '../store';
+import React from 'react';
 
-import * as counterActions from '../features/counter/actions';
-import { MyTypes } from 'src/store/app-types';
+import { MyTypes } from 'src/types/app-types';
 
-const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => ({
-  count: counterReducer.count,
+import { CompRelated } from 'src/types/component-related';
+import * as counter from '../features/counter/actions';
+
+const mapStateToProps = ({ counter }: MyTypes.RootState) => ({
+  count: counter.count,
 });
 
 const mapDispatchToProps = (dispatch: MyTypes.AppDispatch) =>
   bindActionCreators(
     {
-      increment: counterActions.increment,
-      decrement: counterActions.decrement,
-      asyncIncrement: counterActions.asyncIncrement,
+      increment: counter.increment,
+      decrement: counter.decrement,
+      asyncIncrement: counter.asyncIncrement,
     },
     dispatch
   );
 
-type AboutProps = ReturnType<typeof mapDispatchToProps> &
-  ReturnType<typeof mapStateToProps>;
+type Props = CompRelated.Props<
+  typeof mapStateToProps,
+  typeof mapDispatchToProps
+>;
 
-const About = (props: AboutProps) => {
+const About = (props: Props) => {
   return (
     <div id="wrapper-about">
       <p>{props.count}</p>

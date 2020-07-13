@@ -1,37 +1,37 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import * as counterActions from '../features/counter/actions';
-import * as userAction from '../features/user/actions';
+import * as counter from '../features/counter/actions';
+import * as user from '../features/user/actions';
 import { connect } from 'react-redux';
 import { history } from '../store';
-import { MyTypes } from 'src/store/app-types';
+import { MyTypes } from 'src/types/app-types';
+import { CompRelated } from 'src/types/component-related';
 
-const mapStateToProps = ({
-  counterReducer,
-  userReducer,
-}: MyTypes.RootState) => {
+const mapStateToProps = ({ counter, user }: MyTypes.RootState) => {
   return {
-    count: counterReducer.count,
-    users: userReducer,
+    count: counter.count,
+    users: user,
   };
 };
 
 const mapDispatchToProps = (dispatch: MyTypes.AppDispatch) =>
   bindActionCreators(
     {
-      increment: counterActions.increment,
-      decrement: counterActions.decrement,
-      asyncIncrement: counterActions.asyncIncrement,
-      fetchUsers: userAction.fetchUsers,
-      resetUsers: userAction.resetUsers,
+      increment: counter.increment,
+      decrement: counter.decrement,
+      asyncIncrement: counter.asyncIncrement,
+      fetchUsers: user.fetchUsers,
+      resetUsers: user.resetUsers,
     },
     dispatch
   );
 
-type HomeProps = ReturnType<typeof mapStateToProps> &
-  ReturnType<typeof mapDispatchToProps>;
+type Props = CompRelated.Props<
+  typeof mapStateToProps,
+  typeof mapDispatchToProps
+>;
 
-const Home = (props: HomeProps) => {
+const Home = (props: Props) => {
   return (
     <div id="wrapper-home">
       <p>Home Page</p>

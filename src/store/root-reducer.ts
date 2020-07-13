@@ -1,14 +1,15 @@
-import counterReducer from '../features/counter/reducer';
-import userReducer from '../features/user/reducer';
 import { combineReducers } from 'redux';
 import { History } from 'history';
 import { connectRouter } from 'connected-react-router';
 
+import counter from '../features/counter/reducer';
+import user from '../features/user/reducer';
+
 const createRootReducer = (history: History) =>
   combineReducers({
     router: connectRouter(history),
-    counterReducer,
-    userReducer,
+    counter,
+    user,
   });
 
 export default createRootReducer;

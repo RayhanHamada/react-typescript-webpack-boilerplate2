@@ -1,7 +1,7 @@
 import { ofType } from 'redux-observable';
 import { delay, mapTo } from 'rxjs/operators';
 import { increment } from './actions';
-import { MyTypes } from 'src/store/app-types';
+import { MyTypes } from 'src/types/app-types';
 
 export const asyncIncrement: MyTypes.AppEpic = action$ =>
   action$.pipe(

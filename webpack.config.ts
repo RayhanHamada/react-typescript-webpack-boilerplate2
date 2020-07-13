@@ -1,4 +1,5 @@
 import path from 'path';
+
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
@@ -50,12 +51,12 @@ export default {
   ],
 
   // only specified if environment is in production mode
-  optimization: !isProd
-    ? {}
-    : {
+  optimization: isProd
+    ? {
         minimize: true,
         minimizer: [new TerserWebpackPlugin()],
-      },
+      }
+    : {},
 
   // only specified if the environment is in development mode
   devServer: isProd

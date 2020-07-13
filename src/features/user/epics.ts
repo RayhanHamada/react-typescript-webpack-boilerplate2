@@ -4,12 +4,12 @@ import { mergeMap, map } from 'rxjs/operators';
 import { from } from 'rxjs';
 
 import { setUsers } from './actions';
-import { MyTypes } from 'src/store/app-types';
+import { MyTypes } from 'src/types/app-types';
 
 export const fetchUserEpic: MyTypes.AppEpic = action$ =>
   action$.pipe(
     ofType('user/FETCH_USER'),
     mergeMap(() =>
-      from(fetchUser()).pipe(map(res => setUsers(res as AppFeatures.User[])))
+      from(fetchUser()).pipe(map(res => setUsers(res as Features.User[])))
     )
   );

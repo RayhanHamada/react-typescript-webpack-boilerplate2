@@ -1,5 +1,9 @@
-declare namespace AppFeatures {
-  interface User {
+declare namespace Features {
+  export interface Counter {
+    count: number;
+  }
+
+  export interface User {
     id: number;
     name: string;
     username: string;

@@ -1,12 +1,14 @@
 import { createReducer } from 'typesafe-actions';
 
-const initState: AppFeatures.User[] = [];
+const initState: Features.User[] = [];
 
-export default createReducer(initState)
+const reducer = createReducer(initState)
   .handleType('user/SET_USERS', (state, action) => {
     return action.payload.users;
   })
 
   .handleType('user/RESET_USER', () => {
-    return [] as AppFeatures.User[];
+    return [];
   });
+
+export default reducer;
